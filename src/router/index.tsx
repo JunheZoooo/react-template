@@ -6,8 +6,9 @@ import React from 'react';
 import SuspenseLazy from '@/components/SuspenseLazy';
 import {Navigate, RouteObject} from 'react-router-dom';
 
+
 const Home = SuspenseLazy(() => import(/* webpackChunkName:"home" */ '@/view/Home'));
-const HomeOne = SuspenseLazy(() => import(/* webpackChunkName:"home-one" */ '@/view/Home/HomeOne'));
+const HomerFormSubmit = SuspenseLazy(() => import(/* webpackChunkName:"home-one" */ '@/view/Home/HomeFormSubmit/HomerFormSubmit'));
 const HomeTwo = SuspenseLazy(() => import(/* webpackChunkName:"home-two" */ '@/view/Home/HomeTwo'));
 const HomeThree = SuspenseLazy(() => import(/* webpackChunkName:"home-three" */ '@/view/Home/HomeThree'));
 const HomeFour = SuspenseLazy(() => import(/* webpackChunkName:"home-four" */ '@/view/Home/HomeFour'));
@@ -21,7 +22,7 @@ const NotFound = SuspenseLazy(() => import(/* webpackChunkName:"not-found" */ '@
 const routes: RouteObject[] = [
     {
         path: '/',
-        element: <Navigate to='home/one' /> // 重定向
+        element: <Navigate to='home/FormSubmit' /> // 重定向
     },
     {
         path: 'home',
@@ -29,8 +30,8 @@ const routes: RouteObject[] = [
         children: [
             // 嵌套路由
             {
-                path: 'one',
-                element: HomeOne
+                path: 'FormSubmit',
+                element: HomerFormSubmit
             },
             {
                 path: 'two',

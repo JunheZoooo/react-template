@@ -162,7 +162,7 @@ const config = {
         }),
         new PreloadWebpackPlugin({
             rel: 'preload',
-            include: ['home', 'home-two'] // chunks显示命名: 对应 @/router/index.tsx 中 webpackChunkName 名字
+            include: ['home', 'home-two'] // chunks显示命名: 对应 @/router/HomerFormSubmit.tsx 中 webpackChunkName 名字
         }),
         new PreloadWebpackPlugin({
             // rel: 'preload',
@@ -177,7 +177,7 @@ const config = {
              */
             // excludeHtmlNames: ['example.html'],
             // include: 'asyncChunks' // chunks显示命名
-            include: ['dashboard', 'about'] // chunks显示命名: 对应 @/router/index.tsx 中 webpackChunkName 名字
+            include: ['dashboard', 'about'] // chunks显示命名: 对应 @/router/HomerFormSubmit.tsx 中 webpackChunkName 名字
         })
     ]
 };

@@ -153,7 +153,7 @@ merge     🔀 Merge branches
     │   ├── utils                       # Utility library
     │   ├── view                        # Pages
     │   ├── App.tsx                     # Main interface
-    │   └──index.tsx                    # Entry file
+    │   └──HomerFormSubmit.tsx                    # Entry file
     ├── .babelrc.js                     # Babel configuration
     ├── .editorconfig                   # Maintaining consistent coding style across editors
     ├── .env.json                       # Environment variable configuration

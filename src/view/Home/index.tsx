@@ -5,13 +5,13 @@ import {observer} from 'mobx-react-lite';
 import {
     IconContext,
     GlobeHemisphereEast,
-    HardDrives,
-    IceCream,
-    Keyboard,
-    InstagramLogo,
-    FileTsx,
+    // HardDrives,
+    // IceCream,
+    // Keyboard,
+    // InstagramLogo,
+    // FileTsx,
     GithubLogo,
-    GameController
+    // GameController
 } from '@phosphor-icons/react';
 import {Button} from '@/components';
 
@@ -27,18 +27,18 @@ function Home() {
     const navigate = useNavigate();
     const params = useLocation();
     const {pathname} = params;
-    console.log('🚀 ~ file: index.tsx:7 ~ Tab ~ navigate:', pathname);
+    console.log('🚀 ~ file: HomerFormSubmit.tsx:7 ~ Tab ~ navigate:', pathname);
 
     const [activeLink, setActiveLink] = useState<string>(pathname);
 
     const MenuLink = [
-        {name: 'HomeOne', icon: <GlobeHemisphereEast />, link: '/home/one'},
-        {name: 'Pokemon', icon: <GameController />, link: '/home/two'},
-        {name: 'HomeThree', icon: <FileTsx />, link: '/home/three'},
-        {name: 'Mobx 数据更新', icon: <HardDrives />, link: '/home/mobx'},
-        {name: 'Phosphor 图标库', icon: <InstagramLogo />, link: '/home/four'},
-        {name: 'Svg 封装', icon: <IceCream />, link: '/home/icon'},
-        {name: '订单查询', icon: <Keyboard />, link: '/home/order'}
+        {name: 'FormSubmit', icon: <GlobeHemisphereEast />, link: '/home/FormSubmit'}
+        // {name: 'Pokemon', icon: <GameController />, link: '/home/two'},
+        // {name: 'HomeThree', icon: <FileTsx />, link: '/home/three'},
+        // {name: 'Mobx', icon: <HardDrives />, link: '/home/mobx'},
+        // {name: 'Phosphor 图标库', icon: <InstagramLogo />, link: '/home/four'},
+        // {name: 'Svg 封装', icon: <IceCream />, link: '/home/icon'},
+        // {name: '订单查询', icon: <Keyboard />, link: '/home/order'}
     ];
 
     const handleClickLink = (link: string) => {

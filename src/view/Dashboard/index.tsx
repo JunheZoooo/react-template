@@ -6,7 +6,7 @@ import './index.less';
 const Dashboard = () => {
     return (
         <div className='dashboard-root'>
-            <span>hello world Dashboard </span>
+            <span>hello world</span>
             <IconContext.Provider
                 value={{
                     color: '#f9f4da',
