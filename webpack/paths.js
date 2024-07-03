@@ -52,7 +52,7 @@ module.exports = {
     appSrc: resolveApp('src'),
     appSrcComponents: resolveApp('src/components'),
     appSrcUtils: resolveApp('src/utils'),
-    appProxySetup: resolveModule(resolveApp, 'webpack/setProxy'),
+    // appProxySetup: resolveModule(resolveApp, 'src/setupProxy'),
     appPackageJson: resolveApp('package.json'),
     appTsConfig: resolveApp('tsconfig.json'),
     appSvg: resolveApp('src/assets/icons'),

@@ -1,8 +1,8 @@
 import React, { CSSProperties, useCallback, useState } from 'react';
 import { useDropzone, DropzoneRootProps, DropzoneInputProps } from 'react-dropzone';
-import axios from 'axios';
-import type { ButtonType } from 'Components/Button/buttonHelpers';
 import { TextField, MenuItem, Button } from '@mui/material';
+import { PostMCC } from '@/api/home-form';
+import {ButtonType} from 'Components/Button/buttonHelpers';
 
 interface BasicProps {
     className?: string;
@@ -25,27 +25,25 @@ const MCCBasic: React.FC<BasicProps> = (props) => {
         const formData = new FormData();
         formData.append('file', file);
 
-        axios.post('http://127.0.0.1:8001/upload_mcc', formData, {
-            headers: {
-                'Content-Type': 'multipart/form-data'
-            }
-        }).then(response => {
-            console.log('File uploaded successfully:', response.data);
-            setResponseData(response.data.data); // 假设后端返回的数据包含在 data 字段中
-            setError(null);
-            setMissingKeys([]);
-            setMissingKeyValues([]);
-        }).catch(error => {
-            console.error('Error uploading file:', error);
-            if (error.response && error.response.data) {
-                const data = error.response.data;
-                setMissingKeys(data.missing_keys || []);
-                setMissingKeyValues(data.missing_key_values || []);
-                setError(data.message || 'Error uploading file');
-            } else {
-                setError('Error uploading file');
-            }
-        });
+        PostMCC(formData)
+            .then((response) => {
+                console.log('File uploaded successfully:', response.data);
+                setResponseData(response.data);
+                setError(null);
+                setMissingKeys([]);
+                setMissingKeyValues([]);
+            })
+            .catch(error => {
+                console.error('Error uploading file:', error);
+                if (error.response && error.response.data) {
+                    const data = error.response.data;
+                    setMissingKeys(data.missing_keys || []);
+                    setMissingKeyValues(data.missing_key_values || []);
+                    setError(data.message || 'Error uploading file');
+                } else {
+                    setError('Error uploading file');
+                }
+            });
     }, []);
 
     const handleFieldChange = (key: string, value: string) => {

@@ -10,7 +10,7 @@ import type {ButtonType} from 'Components/Button/buttonHelpers';
 import Basic from 'Components/DragZone/basic';
 import {Grid} from '@mui/material';
 import MCCBasic from 'Components/DragZone/mcc_basic';
-import ComboBox from 'Components/ComboBox/combo_box'
+import TestTaComboBox from 'Components/ComboBox/testTA_combo_box';
 
 const steps = ['Select campaign settings', 'Create an ad group', 'Create an ad'];
 
@@ -79,7 +79,7 @@ const HorizontalLinearStepper: FC<HorizontalLinearStepperProps> = () => {
                         </Grid>
                         <Grid item xs={12}>
                             this is combo
-                            <ComboBox />
+                            <TestTaComboBox/>
                         </Grid>
                         {/*<Grid item xs={12}>*/}
                         {/*    <ComboBox />*/}
@@ -95,9 +95,9 @@ const HorizontalLinearStepper: FC<HorizontalLinearStepperProps> = () => {
                         <Grid item xs={12}>
                             <Basic />
                         </Grid>
-                        <Grid item xs={12}>
-                            <ComboBox />
-                        </Grid>
+                        {/*<Grid item xs={12}>*/}
+                        {/*    <ComboBox />*/}
+                        {/*</Grid>*/}
                         {/*<Grid item xs={12}>*/}
                         {/*    <ComboBox />*/}
                         {/*</Grid>*/}
@@ -112,9 +112,9 @@ const HorizontalLinearStepper: FC<HorizontalLinearStepperProps> = () => {
                         <Grid item xs={12}>
                             <Basic />
                         </Grid>
-                        <Grid item xs={12}>
-                            <ComboBox />
-                        </Grid>
+                        {/*<Grid item xs={12}>*/}
+                        {/*    <ComboBox />*/}
+                        {/*</Grid>*/}
                         {/*<Grid item xs={12}>*/}
                         {/*    <ComboBox />*/}
                         {/*</Grid>*/}

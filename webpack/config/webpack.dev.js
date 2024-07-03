@@ -22,7 +22,15 @@ const devConfig = {
         hot: true, // 热更新
         noInfo: true,
         proxy: {
-            ...require(paths.appProxySetup)
+            '/api': {
+                target: 'http://localhost:8001',
+                changeOrigin: true,
+                pathRewrite: { '^/api': '' },
+                ws:true,
+                secure: false,
+                timeout:60000,
+                proxyTimeout:60000
+            },
         },
         historyApiFallback: true // 单页面配置appProxySetup
     },

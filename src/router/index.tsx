@@ -1,10 +1,8 @@
-/*
- * react-router-dom v6 官方文档
- * https://reactrouter.com/en/v6.3.0/getting-started/installation
- */
-import React from 'react';
 import SuspenseLazy from '@/components/SuspenseLazy';
 import {Navigate, RouteObject} from 'react-router-dom';
+
+import React from 'react';
+import {Auth} from '@/router/Auth';
 
 
 const Home = SuspenseLazy(() => import(/* webpackChunkName:"home" */ '@/view/Home'));
@@ -18,17 +16,22 @@ const HomeOrder = SuspenseLazy(() => import(/* webpackChunkName:"home-order" */ 
 const Dashboard = SuspenseLazy(() => import(/* webpackChunkName:"dashboard" */ '@/view/Dashboard'));
 const About = SuspenseLazy(() => import(/* webpackChunkName:"about" */ '@/view/About'));
 const NotFound = SuspenseLazy(() => import(/* webpackChunkName:"not-found" */ '@/view/NotFound'));
+const Login = SuspenseLazy(() => import(/* webpackChunkName:"not-found" */ '@/view/Login'));
+const Signup = SuspenseLazy(() => import(/* webpackChunkName:"not-found" */ '@/view/Signup'));
+// const isAuthenticated = Boolean(load('token')); // 根据实际的 Cookie 名称获取
 
-const routes: RouteObject[] = [
+const routes :RouteObject[] = [
     {
         path: '/',
-        element: <Navigate to='home/FormSubmit' /> // 重定向
+
+        element: <Navigate to='login'></Navigate> // 重定向
     },
     {
         path: 'home',
-        element: Home,
+        element: <Auth>{Home}</Auth>,
+
+
         children: [
-            // 嵌套路由
             {
                 path: 'FormSubmit',
                 element: HomerFormSubmit
@@ -61,17 +64,39 @@ const routes: RouteObject[] = [
     },
     {
         path: 'dashboard',
-        element: Dashboard
+
+        element: <Auth>{Dashboard}</Auth>,
     },
     {
         path: 'about',
-        element: About
+        element: <Auth>{About}</Auth>,
     },
-    // 未匹配到页面
+    {
+        path: 'login',
+        element: Login
+    },
+    {
+        path: 'signup',
+        element: Signup
+    },
     {
         path: '*',
         element: NotFound
     }
 ];
+
+const checkAuth = (routers:any, path:string)=>{
+    for (const data of routers) {
+        if (data.path==path) return data
+        if (data.children) {
+            const res:any = checkAuth(data.children, path)
+            if (res) return res
+        }
+    }
+    return null
+}
+
+
+
 
 export default routes;
